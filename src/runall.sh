@@ -6,19 +6,21 @@
 # directory.
 #
 
-WORK_DIR=/home/thomas.e/olga
+WORK_DIR=/home/kondrashova.o/resources/pipelines
 RESULTS_DIR=${WORK_DIR}/pdx-genome/test
 CWL_DIR=${WORK_DIR}/pdx-genome/src
 LOG_DIR=${WORK_DIR}/pdx-genome/logs
-VENV_DIR=${WORK_DIR}/toil-env
+VENV_DIR=/home/kondrashova.o/v-env/
 #WEHI_PIPELINE=${WORK_DIR}/wehi-pipeline/src
 
 cd $RESULTS_DIR
 
 module load python
+module load node
+
 . ${VENV_DIR}/bin/activate
 
-DRMAA_LIBRARY_PATH=/stornext/System/data/apps/pbs-drmaa/pbs-drmaa-1.0.19/lib/libdrmaa.so
+export DRMAA_LIBRARY_PATH=/stornext/System/data/apps/pbs-drmaa/pbs-drmaa-1.0.19/lib/libdrmaa.so
 #export PYTHONPATH=${WEHI_PIPELINE}
 
 fn=`date +%Y_%m_%d_%H_%M`
