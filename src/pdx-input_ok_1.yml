@@ -1,0 +1,69 @@
+reads1:
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H52HNALXX_1_160829_FR07888542_Homo-sapiens__R_160830_OLGKON_DNA_M001_R1.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H52HNALXX_2_160829_FR07888549_Homo-sapiens__R_160830_OLGKON_DNA_M001_R1.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H52HNALXX_3_160829_FR07888557_Homo-sapiens__R_160830_OLGKON_DNA_M001_R1.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H55YCALXX_4_160829_FR07888549_Homo-sapiens__R_160830_OLGKON_DNA_M001_R1.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H55YCALXX_6_160829_FR07888541_Homo-sapiens__R_160830_OLGKON_DNA_M001_R1.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H55YCALXX_8_160829_FR07888543_Homo-sapiens__R_160830_OLGKON_DNA_M001_R1.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H5753ALXX_1_160829_FR07888566_Homo-sapiens__R_160830_OLGKON_DNA_M001_R1.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H5753ALXX_3_160829_FR07888558_Homo-sapiens__R_160830_OLGKON_DNA_M001_R1.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H5753ALXX_6_160829_FR07888567_Homo-sapiens__R_160830_OLGKON_DNA_M001_R1.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H5753ALXX_7_160829_FR07888572_Homo-sapiens__R_160830_OLGKON_DNA_M001_R1.fastq.gz"
+ 
+reads2:
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H52HNALXX_1_160829_FR07888542_Homo-sapiens__R_160830_OLGKON_DNA_M001_R2.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H52HNALXX_2_160829_FR07888549_Homo-sapiens__R_160830_OLGKON_DNA_M001_R2.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H52HNALXX_3_160829_FR07888557_Homo-sapiens__R_160830_OLGKON_DNA_M001_R2.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H55YCALXX_4_160829_FR07888549_Homo-sapiens__R_160830_OLGKON_DNA_M001_R2.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H55YCALXX_6_160829_FR07888541_Homo-sapiens__R_160830_OLGKON_DNA_M001_R2.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H55YCALXX_8_160829_FR07888543_Homo-sapiens__R_160830_OLGKON_DNA_M001_R2.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H5753ALXX_1_160829_FR07888566_Homo-sapiens__R_160830_OLGKON_DNA_M001_R2.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H5753ALXX_3_160829_FR07888558_Homo-sapiens__R_160830_OLGKON_DNA_M001_R2.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H5753ALXX_6_160829_FR07888567_Homo-sapiens__R_160830_OLGKON_DNA_M001_R2.fastq.gz"
+  - class: File
+    format: "edam:format_1930"
+    location: "/stornext/Bioinf/data/bioinf-data/Papenfuss_lab/projects/ovary/wgs/fastq_2016_oct/H5753ALXX_7_160829_FR07888572_Homo-sapiens__R_160830_OLGKON_DNA_M001_R2.fastq.gz"
+
+
+
+
+$namespaces: { edam: http://edamontology.org/ }
+$schemas: [ http://edamontology.org/EDAM_1.16.owl ]
