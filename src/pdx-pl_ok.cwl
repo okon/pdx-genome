@@ -358,7 +358,7 @@ steps:
         source: rename_reads1_trimmed/renamed
         valueFrom: >
           ${
-              return self.nameroot + '.human.bam'
+              return self.nameroot + '.human_specific.bam'
           }
       threads:
         valueFrom: $( 10 )
@@ -382,7 +382,7 @@ steps:
         source: rename_reads1_trimmed/renamed
         valueFrom: >
           ${
-              return self.nameroot + '.sorted.human.bam'
+              return self.nameroot + '.sorted.human_specific.bam'
           }
       threads:
         valueFrom: $( 10 )
