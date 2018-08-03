@@ -7,9 +7,9 @@
 #
 
 WORK_DIR=/home/kondrashova.o/resources/pipelines
-RESULTS_DIR=${WORK_DIR}/pdx-genome/test
-CWL_DIR=${WORK_DIR}/pdx-genome/src
-LOG_DIR=${WORK_DIR}/pdx-genome/logs
+RESULTS_DIR=${WORK_DIR}/pdx-genome-ok/test
+CWL_DIR=${WORK_DIR}/pdx-genome-ok/src
+LOG_DIR=${WORK_DIR}/pdx-genome-ok/logs
 VENV_DIR=/home/kondrashova.o/v-env/
 #WEHI_PIPELINE=${WORK_DIR}/wehi-pipeline/src
 
@@ -28,8 +28,8 @@ fn=`date +%Y_%m_%d_%H_%M`
 cwlwehi \
     --batchSystem drmaa \
     --jobQueue submit \
-    --jobNamePrefix pdx \
+    --jobNamePrefix pdx_test \
     --jobStore ${fn}.wf \
-    ${CWL_DIR}/pdx-scatter.cwl ${CWL_DIR}/pdx-inp.yml
+    ${CWL_DIR}/other-scatter_pl_ok.cwl ${CWL_DIR}/pdx-inp.yml
     # &>> ${LOG_DIR}/${fn}.toil.log \
 # & disown
