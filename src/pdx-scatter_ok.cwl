@@ -20,18 +20,20 @@ inputs:
         location: /stornext/System/data/apps/trimmomatic/trimmomatic-0.36/adapters/TruSeq3-PE.fa
 
 outputs:
-  # trim with trimmomatic and rename
+  # trim with trimmomatic
   trim-logs:
     type: File[]
     outputSource: all/trim-logs
-  rename_reads1_trimmed_file:
-    type: File[]
-    outputSource: all/rename_reads1_trimmed_file
-  rename_reads2_trimmed_paired_file:
+  reads1_trimmed_file:
     type:
     - "null"
-    -  File[]
-    outputSource: all/rename_reads2_trimmed_paired_file
+    - File[]
+    outputSource: all/reads1_trimmed_file
+  reads2_trimmed_file:
+    type:
+    - "null"
+    - File[]
+    outputSource: all/reads2_trimmed_file
   reads1_trimmed_unpaired_file:
     type:
     - "null"
@@ -44,41 +46,39 @@ outputs:
     outputSource: all/reads2_trimmed_unpaired_file
   # align to mouse with bowtie2
   mouse-aligned:
-    type: File[]
+    type:
+    - "null"
+    - File[]
     outputSource: all/reads2_trimmed_unpaired_file
   # align to human with bowtie2
   human-aligned:
-    type: File[]
+    type:
+    - "null"
+    - File[]
     outputSource: all/human-aligned
   # compare genomes with xenomapper
   primary_specific:
     type:
-    - "null"
     - File[]
     outputSource: all/primary_specific
   secondary_specific:
     type:
-    - "null"
     - File[]
     outputSource: all/secondary_specific
   primary_multi:
     type:
-    - "null"
     - File[]
     outputSource: all/primary_multi
   secondary_multi:
     type:
-    - "null"
     - File[]
     outputSource: all/secondary_multi
   unassigned:
     type:
-    - "null"
     - File[]
     outputSource: all/unassigned
   unresolved:
     type:
-    - "null"
     - File[]
     outputSource: all/unresolved
   # convert
@@ -115,8 +115,8 @@ steps:
 
     out: [
       trim-logs,
-      rename_reads1_trimmed_file,
-      rename_reads2_trimmed_paired_file,
+      reads1_trimmed_file,
+      reads2_trimmed_file,
       reads1_trimmed_unpaired_file,
       reads2_trimmed_unpaired_file,
       mouse-aligned,
