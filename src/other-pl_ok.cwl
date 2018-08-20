@@ -179,7 +179,7 @@ steps:
         source: trim/reads1_trimmed
         valueFrom: >
           ${
-              return self.nameroot + '.human_specific.bam'
+              return self.nameroot + '.human.bam'
           }
       threads:
         valueFrom: $( 10 )
@@ -203,7 +203,7 @@ steps:
         source: trim/reads1_trimmed
         valueFrom: >
           ${
-              return self.nameroot + '.human_specific.sorted.bam'
+              return self.nameroot + '.human.sorted.bam'
           }
       threads:
         valueFrom: $( 10 )

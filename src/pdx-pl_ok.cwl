@@ -332,7 +332,7 @@ steps:
         source: trim/reads1_trimmed
         valueFrom: >
           ${
-              return self.nameroot + '.sorted.human_specific.bam'
+              return self.nameroot + '.human_specific.sorted.bam'
           }
       threads:
         valueFrom: $( 10 )

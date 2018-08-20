@@ -20,18 +20,20 @@ inputs:
         location: /stornext/System/data/apps/trimmomatic/trimmomatic-0.36/adapters/TruSeq3-PE.fa
 
 outputs:
-  # trim with trimmomatic and rename
+  # trim with trimmomatic
   trim-logs:
     type: File[]
     outputSource: all/trim-logs
-  rename_reads1_trimmed_file:
-    type: File[]
-    outputSource: all/rename_reads1_trimmed_file
-  rename_reads2_trimmed_paired_file:
+  reads1_trimmed_file:
+    type: 
+    - "null"
+    - File[]
+    outputSource: all/reads1_trimmed_file
+  reads2_trimmed_file:
     type:
     - "null"
     -  File[]
-    outputSource: all/rename_reads2_trimmed_paired_file
+    outputSource: all/reads2_trimmed_file
   reads1_trimmed_unpaired_file:
     type:
     - "null"
@@ -44,7 +46,9 @@ outputs:
     outputSource: all/reads2_trimmed_unpaired_file
   # align to human with bowtie2
   human-aligned:
-    type: File[]
+    type:
+    - "null"
+    - File[]
     outputSource: all/human-aligned
   # convert
   human-sorted:
@@ -79,8 +83,8 @@ steps:
 
     out: [
       trim-logs,
-      rename_reads1_trimmed_file,
-      rename_reads2_trimmed_paired_file,
+      reads1_trimmed_file,
+      reads2_trimmed_file,
       reads1_trimmed_unpaired_file,
       reads2_trimmed_unpaired_file,
       human-aligned,
