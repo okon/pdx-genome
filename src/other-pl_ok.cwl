@@ -5,17 +5,6 @@ cwlVersion: v1.0
 
 requirements:
 - class: InlineJavascriptRequirement
-  expressionLib:
-  - var rename_trim_file = function() {
-      if ( self == null ) {
-        return null;
-      } else {
-        var xx = self.basename.split('.');
-        var id = xx.indexOf('fastq');
-        xx.splice(id, 1);
-        return xx.join('.');
-      }
-    };
 - class: ScatterFeatureRequirement
 - class: StepInputExpressionRequirement
 - class: SchemaDefRequirement
@@ -37,27 +26,21 @@ inputs:
         location: /stornext/System/data/apps/trimmomatic/trimmomatic-0.36/adapters/TruSeq3-PE.fa
 
 outputs:
-  # trim with trimmomatic and rename
+  # trim with trimmomatic
   trim-logs:
     type: File
     outputSource: trim/output_log
-  rename_reads1_trimmed_file:
-    type: File
-    outputSource: rename_reads1_trimmed/renamed
-  rename_reads2_trimmed_paired_file:
-    type:
-    - "null"
-    -  File
-    outputSource: trim/reads2_trimmed_unpaired
+  reads1_trimmed_file:
+    type: File?
+    outputSource: trim/reads1_trimmed
+  reads2_trimmed_file:
+    type: File?
+    outputSource: trim/reads2_trimmed
   reads1_trimmed_unpaired_file:
-    type:
-    - "null"
-    - File
+    type: File?
     outputSource: trim/reads1_trimmed_unpaired
   reads2_trimmed_unpaired_file:
-    type:
-    - "null"
-    - File
+    type: File?
     outputSource: trim/reads2_trimmed_unpaired
   # align to human with bowtie2
   human-aligned:
@@ -121,41 +104,7 @@ steps:
               "keepBothReads": true };
           }
 
-    out: [output_log, reads1_trimmed, reads1_trimmed_unpaired, reads2_trimmed_paired, reads2_trimmed_unpaired]
-
-  #
-  # rename trimmed files by removing redundant '.fastq' from the filename
-  #
-  rename_reads1_trimmed:
-    run: ../tools/src/tools/rename-file.cwl
-    requirements:
-      ResourceRequirement:
-        coresMin: 1
-        ramMin: 4000
-
-    in:
-      infile: trim/reads1_trimmed
-      outfile:
-        source: trim/reads1_trimmed
-        valueFrom: ${ return rename_trim_file(); }
-
-    out: [renamed]
-
-  rename_reads2_trimmed_paired:
-    run: ../tools/src/tools/rename-file.cwl
-    requirements:
-      ResourceRequirement:
-        coresMin: 1
-        ramMin: 4000
-
-    in:
-      infile: trim/reads2_trimmed_paired
-      outfile:
-        source: trim/reads2_trimmed_paired
-        valueFrom: ${ return rename_trim_file(); }
-
-    out: [renamed]
-
+    out: [output_log, reads1_trimmed, reads1_trimmed_unpaired, reads2_trimmed, reads2_trimmed_unpaired]
 
   #
   # align to human reference with bowtie2
@@ -164,12 +113,12 @@ steps:
     run: ../tools/src/tools/bowtie2.cwl
     requirements:
       ResourceRequirement:
-        coresMin: 25
+        coresMin: 24
         ramMin: 64000
 
     in:
       samout:
-        source: rename_reads1_trimmed/renamed
+        source: trim/reads1_trimmed
         valueFrom: >
           ${
               return self.nameroot + '.human.sam'
@@ -179,13 +128,13 @@ steps:
       maxins:
         valueFrom: $( 1200 )
       one:
-        source: rename_reads1_trimmed/renamed
+        source: trim/reads1_trimmed
         valueFrom: >
           ${
             return [self];
           }
       two:
-        source: rename_reads2_trimmed_paired/renamed
+        source: trim/reads2_trimmed
         valueFrom: >
           ${
             if ( self == null ) {
@@ -220,17 +169,17 @@ steps:
     run: ../tools/src/tools/samtools-view.cwl
     requirements:
       ResourceRequirement:
-        coresMin: 10
+        coresMin: 8
         ramMin: 32000
 
     in:
       input:
         align-to-human/aligned-file
       output_name:
-        source: rename_reads1_trimmed/renamed
+        source: trim/reads1_trimmed
         valueFrom: >
           ${
-              return self.nameroot + '.human.bam'
+              return self.nameroot + '.human_specific.bam'
           }
       threads:
         valueFrom: $( 10 )
@@ -244,17 +193,17 @@ steps:
     run: ../tools/src/tools/samtools-sort.cwl
     requirements:
       ResourceRequirement:
-        coresMin: 10
+        coresMin: 8
         ramMin: 32000
 
     in:
       input:
         source: convert-human/output
       output_name:
-        source: rename_reads1_trimmed/renamed
+        source: trim/reads1_trimmed
         valueFrom: >
           ${
-              return self.nameroot + '.sorted.human.bam'
+              return self.nameroot + '.human_specific.sorted.bam'
           }
       threads:
         valueFrom: $( 10 )
@@ -268,7 +217,7 @@ steps:
     run: ../tools/src/tools/samtools-index.cwl
     requirements:
       ResourceRequirement:
-        coresMin: 10
+        coresMin: 8
         ramMin: 32000
 
     in:
@@ -276,5 +225,6 @@ steps:
         source: sort-human/sorted
 
     out: [index]
+
 
 
