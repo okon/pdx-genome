@@ -69,7 +69,7 @@ steps:
     run: ../tools/src/tools/trimmomatic.cwl
     requirements:
       ResourceRequirement:
-        coresMin: 2
+        coresMin: 16
         ramMin: 16000
 
     in:
@@ -90,7 +90,7 @@ steps:
       end_mode:
         default: PE
       nthreads:
-        valueFrom: $( 2 )
+        valueFrom: $( 16 )
       illuminaClip:
         source: adapters
         valueFrom: |

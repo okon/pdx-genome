@@ -28,8 +28,8 @@ fn=`date +%Y_%m_%d_%H_%M`
 cwlwehi \
     --batchSystem drmaa \
     --jobQueue submit \
-    --jobNamePrefix pdx_test \
+    --jobNamePrefix other_test \
     --jobStore ${fn}.wf \
-    ${CWL_DIR}/other-scatter_pl_ok.cwl ${CWL_DIR}/pdx-inp.yml
+    ${CWL_DIR}/other-scatter_ok.cwl ${CWL_DIR}/pdx-inp.yml
     # &>> ${LOG_DIR}/${fn}.toil.log \
 # & disown
