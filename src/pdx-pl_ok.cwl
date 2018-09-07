@@ -288,6 +288,8 @@ steps:
           ${
             return self.nameroot + '.unresolved.sam'
           }
+      paired:
+        default: true
 
     out: [primary_specific, secondary_specific, primary_multi, secondary_multi, unassigned, unresolved]
 
